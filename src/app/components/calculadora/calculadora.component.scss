@@ -7,16 +7,14 @@
     height: 40px;
 }
 
-
-
 .Numberbutton {
         font-size:20px;
-        width:35px;
+        width:40px;
       background-color: #CADFE0;
   }
 
 .Operationbutton {
-    width:70px;
+    width:75px;
     font-weight:bold;
     background-color:#599194;
 }
@@ -50,4 +48,8 @@
     height: 40px;
     padding: 10px 4px 4px 0px;
     font-weight:bold;
+}
+
+.Result-button{
+  width: 180px;
 }

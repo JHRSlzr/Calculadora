@@ -1,34 +1,37 @@
-
+<LINK REL="stylesheet" HREF="calculadora.component.scss">
 <div name="calculadora" class="container">
     <div class="child">
+        <div class="block">
+            <input class="display" type="textfield" value='{{ result$ | async }}'>
+        </div>    
        <!-- <input class="display"  type="textfield" name="displayCalc" value="">-->
         <div class="block">
-            <input id="txtOperaciones" class="display" type="textfield" value="">
-        </div>    
-        <div class="block">
-        <input class="button Numberbutton" type="button" value="7" >
-        <input class="button Numberbutton" type="button" value="8" >
-        <input class="button Numberbutton" type="button" value="9" >
-        <input class="button Operationbutton" type="button" value="+" >
+        <input class="button Numberbutton" type="button" value="7" (click)="this.SendNumber(7)">
+        <input class="button Numberbutton" type="button" value="8" (click)="this.SendNumber(8)">
+        <input class="button Numberbutton" type="button" value="9" (click)="this.SendNumber(9)">
+        <input class="button Operationbutton" type="button" value="+" (click)="this.SendOperator('+')">
     </div>
 
         <div class="block">
-        <input class="button Numberbutton" type="button" value="4" >
-        <input class="button Numberbutton" type="button" value="5" >
-        <input class="button Numberbutton" type="button" value="6" >
-        <input class="button Operationbutton" type="button" value="-" >
+        <input class="button Numberbutton" type="button" value="4" (click)="this.SendNumber(4)">
+        <input class="button Numberbutton" type="button" value="5" (click)="this.SendNumber(5)">
+        <input class="button Numberbutton" type="button" value="6" (click)="this.SendNumber(6)">
+        <input class="button Operationbutton" type="button" value="-"(click)="this.SendOperator('-')" >
     </div>
         <div class="block">
-        <input class="button Numberbutton" type="button" value="1" >
-        <input class="button Numberbutton" type="button" value="2" >
-        <input class="button Numberbutton" type="button" value="3" >
-        <input class="button Operationbutton" type="button" value="*" >
+        <input class="button Numberbutton" type="button" value="1" (click)="this.SendNumber(1)">
+        <input class="button Numberbutton" type="button" value="2" (click)="this.SendNumber(2)">
+        <input class="button Numberbutton" type="button" value="3" (click)="this.SendNumber(3)">
+        <input class="button Operationbutton" type="button" value="*" (click)="this.SendOperator('*')">
     </div>
 
         <div class="block">
-        <input class="button Numberbutton" type="button" value="0" >
-        <input class="button Operationbutton" type="button" value="c" >
-        <input class="button Operationbutton" type="button" value="/" >
+        <input class="button Numberbutton" type="button" value="0" (click)="this.SendNumber(0)">
+        <input class="button Operationbutton" type="reset" value="c" (click)="this.ClearAll()">
+        <input class="button Operationbutton" type="button" value="/" (click)="this.SendOperator('/')">
     </div>
+    <div class="block">
+        <input class="button Operationbutton Result-button" type="textfield" value="="(click)="this.doOperation()">
+    </div>   
 </div>
 </div>

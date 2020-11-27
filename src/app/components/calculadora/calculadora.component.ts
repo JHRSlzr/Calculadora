@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Select } from '@ngxs/store';
+import { Observable } from 'rxjs';
+import {NumberOperationAction, OperatorOperationAction, ResultOperationAction, ClearOperationAction, OperationState } from './../../models/operation/operation.redux';
+import { IOperation} from './../../interfaces/operation.interface';
+import { Store } from '@ngxs/store';
 
 @Component({
   selector: 'app-calculadora',
@@ -7,9 +12,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalculadoraComponent implements OnInit {
 
-  constructor() { }
+  @Select(OperationState.GetResult) result$: Observable<number>;
+  constructor(private store: Store) { }
 
   ngOnInit(): void {
   }
 
+
+
+  SendNumber(value: number) {
+    this.store.dispatch(new NumberOperationAction(value));
+  }
+
+  SendOperator(value: string) {
+    this.store.dispatch(new OperatorOperationAction(value));
+  }
+
+  doOperation() {
+    this.store.dispatch(new ResultOperationAction());
+  }
+
+  ClearAll() {
+    this.store.dispatch(new ClearOperationAction());
+  }
 }

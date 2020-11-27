@@ -4,5 +4,4 @@ export interface IOperation {
     operator: string;
     result: number;
     validation:boolean;
-    status: "";
 }
