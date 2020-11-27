@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
-import { IOperation } from '../../interfaces/operation.interface';
 
 export interface IROperation {
     value1?: number;
@@ -8,7 +7,6 @@ export interface IROperation {
     operator?: string;
     result?: number;
     validation?:boolean;
-
 }
 
 export class NumberOperationAction {
@@ -52,7 +50,7 @@ export class OperationState {
     }
 
     @Action(NumberOperationAction)
-    Number(state: StateContext<IROperation>, action:NumberOperationAction ) {
+    getNumber(state: StateContext<IROperation>, action:NumberOperationAction ) {
         if(action.value != 0){
                 if(state.getState().validation==false){
                 state.patchState({value1:Number(String(state.getState().value1)+ action.value) });
@@ -68,7 +66,7 @@ export class OperationState {
     }
 
     @Action(OperatorOperationAction)
-    Operator(state: StateContext<IROperation>, action:OperatorOperationAction) {
+    getOperator(state: StateContext<IROperation>, action:OperatorOperationAction) {
         if(state.getState().value2!=0){
             switch(action.operator)
             {
@@ -96,7 +94,7 @@ export class OperationState {
     }
 
     @Action(ResultOperationAction)
-    Result(state: StateContext<IROperation>, action:ResultOperationAction) {
+    getResult(state: StateContext<IROperation>, action:ResultOperationAction) {
         switch(state.getState().operator)
         {
             case '+':
@@ -119,7 +117,7 @@ export class OperationState {
     }
 
     @Action(ClearOperationAction)
-    Clear(state: StateContext<IROperation>, action:ClearOperationAction) {
+    doClear(state: StateContext<IROperation>, action:ClearOperationAction) {
         state.setState({
             value1: 0,
             value2: 0,
@@ -128,5 +126,4 @@ export class OperationState {
             result: 0,
           });
     }
-
 }

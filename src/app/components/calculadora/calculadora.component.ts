@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+
+//Redux
 import { Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import {NumberOperationAction, OperatorOperationAction, ResultOperationAction, ClearOperationAction, OperationState } from './../../models/operation/operation.redux';
@@ -20,11 +22,11 @@ export class CalculadoraComponent implements OnInit {
 
 
 
-  SendNumber(value: number) {
+  sendNumber(value: number) {
     this.store.dispatch(new NumberOperationAction(value));
   }
 
-  SendOperator(value: string) {
+  sendOperator(value: string) {
     this.store.dispatch(new OperatorOperationAction(value));
   }
 
@@ -32,7 +34,7 @@ export class CalculadoraComponent implements OnInit {
     this.store.dispatch(new ResultOperationAction());
   }
 
-  ClearAll() {
+  clearAll() {
     this.store.dispatch(new ClearOperationAction());
   }
 }
