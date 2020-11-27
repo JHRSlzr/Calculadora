@@ -1,0 +1,53 @@
+
+.button {
+    text-align: center;
+    Color:#404747;
+    border-color:black;
+    font-size:20px;
+    height: 40px;
+}
+
+
+
+.Numberbutton {
+        font-size:20px;
+        width:35px;
+      background-color: #CADFE0;
+  }
+
+.Operationbutton {
+    width:70px;
+    font-weight:bold;
+    background-color:#599194;
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.child {
+  justify-content: center;
+  align-items: center;
+}
+
+.block {
+    background-color: #404747;
+    display: flex;
+    width:100%;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+  }
+
+.display {
+    width:100%;
+    pointer-events: none;
+    text-align: center;
+    Color:#404747;
+    border-color:black;
+    font-size:15px;
+    height: 40px;
+    padding: 10px 4px 4px 0px;
+    font-weight:bold;
+}

@@ -4,15 +4,24 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+//Componentes
+import { CalculadoraComponent } from './components/calculadora/calculadora.component';
+
+import { NgxsModule } from '@ngxs/store';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CalculadoraComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxsModule.forRoot([], {
+      developmentMode: true
+    })
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
