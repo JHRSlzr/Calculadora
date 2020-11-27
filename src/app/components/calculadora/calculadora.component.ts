@@ -1,10 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 //Redux
 import { Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import {NumberOperationAction, OperatorOperationAction, ResultOperationAction, ClearOperationAction, OperationState } from './../../models/operation/operation.redux';
-import { IOperation} from './../../interfaces/operation.interface';
 import { Store } from '@ngxs/store';
 
 @Component({
